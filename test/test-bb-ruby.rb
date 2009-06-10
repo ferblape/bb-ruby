@@ -139,6 +139,10 @@ class TestBBRuby < Test::Unit::TestCase
     assert_equal '<a href="mailto:wadus@wadus.com">wadus@wadus.com</a>', '[email]wadus@wadus.com[/email]'.bbcode_to_html
   end
   
+  def test_auto_link
+    assert_equal 'previous text <a href="http://www.google.com">http://www.google.com</a> post text', 'previous text http://www.google.com post text'.bbcode_to_html
+  end
+  
   def test_redefinition_of_tag_html
     mydef = {
       'Quote' => [
